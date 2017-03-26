@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CHATTER BOX</title>
+    <meta name="description" content="Chatter Box" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="materialize.min.css"></link>
+    <link rel="stylesheet" href="style.css"></link>
+  </head>
+  <body>
+    <header id="header">
+      <div class="row">
+        <div class="page-header">
+          Chatter Box
+        </div>
+      </div>
+    </header>
+    <main id="body">
+      <div class="description" id="about_chatterbox">
+        A simple chat application that allows you to chat with people either in groups or even in person.
+      </div>
+      <div id="login-content" class="login-container">
+        <div class="row login-form">
+          <form class="col s12 form1" action="" name="form1" id="form1">
+            <div class="input-field col s12">
+              <input autofocus="true" class="input-box" type="text" id="name" required placeholder="Enter your Name">
+            </div>
+            <div class="input-field col s12">
+              <input class="input-box" type="text" id="chat-id" placeholder="Enter Room ID (Optional)">
+            </div>
+            <div class="generate-btn col s12 ">
+              <input type="submit" class="waves-effect waves-light btn" id="namebtn" value="Enter Chat">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="messenger-content" class="chat-container">
+        <form class="messenger-body" name="form2" id="form2" action="">
+          <div class="welcome-title">
+            <label class="welcome-label">Welcome </label><span id="sendername"></span>!
+          </div>
+          <div class="user-status" id="userstatus"></div>
+          <div class="chat-box">
+            <div id="messages" class="messages"></div>
+          </div>
+          <div class="input-message" >
+            <input autofocus="true" class="text-input" type="text" id="m" autocomplete="off" required >
+            <input class="waves-effect waves-light btn send-btn" type="submit" id="msgbtn" value="Send" >
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <div class="footer">
+        Developed by Jefree Sujit.
+      </div>
+    </footer>
+    <script src="jquery-2.1.1.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="sock-main.js"> </script>
+  </body>
+</html>
