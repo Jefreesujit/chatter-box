@@ -2,6 +2,7 @@ var express = require('express')
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var bodyParser = require('body-parser');
 
 // app.get('/sock-main.js', function(req,res){
 // 	res.sendFile(__dirname + '/js/sock-main.js');
@@ -14,6 +15,9 @@ app.get('/fonts/roboto/*', function(req,res){
 
 app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/js'));
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.post('/api/withdraw', function(req, res) {
   console.log(req.body);
