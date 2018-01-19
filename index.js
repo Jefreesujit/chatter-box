@@ -16,6 +16,12 @@ app.get('/fonts/roboto/*', function(req,res){
 app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/js'));
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
