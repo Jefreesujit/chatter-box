@@ -3,10 +3,6 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-app.get('/', function(req,res){
-	res.sendFile(__dirname + '/index.html');
-});
-
 // app.get('/sock-main.js', function(req,res){
 // 	res.sendFile(__dirname + '/js/sock-main.js');
 // });
@@ -18,6 +14,25 @@ app.get('/fonts/roboto/*', function(req,res){
 
 app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/js'));
+
+app.post('/api/withdraw', function(req, res) {
+  console.log(req.body);
+  if (req.body.address && req.body.amount && parseFloat(req.body.amount) > 0.001) {
+    res.status(200).json({
+      status: 'Pending Verification',
+      message: 'You request is being validated, once confirmed the payment will be processed. It will take around 3 - 7 working days to confirm and process the payment. \n Happy Mining!'
+    });
+  } else {
+    res.status(400).json({
+      status: 'Failed',
+      message: 'Invalid request, please check the details'
+    });
+  }
+});
+
+app.get('/', function(req,res){
+	res.sendFile(__dirname + '/index.html');
+});
 
 io.on('connection' , function(socket){
 
