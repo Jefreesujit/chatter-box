@@ -14,7 +14,7 @@
 
 
 ```
-git clone https://jefreesujit@bitbucket.org/jefreesujit/socket-chat.git
+git clone https://github.com/Jefreesujit/chatter-box.git
 ```
 
 ```
